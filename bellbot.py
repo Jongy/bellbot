@@ -1,10 +1,10 @@
 import sys
 import os
 import time
+import json
+import urllib.request
 import datetime
 import subprocess
-
-import telegram
 
 
 CONFIG_FILE = os.path.expanduser("~/.config/bellbot")
@@ -24,8 +24,16 @@ def load_config():
 
 
 def send_message(text, config):
-    bot = telegram.Bot(token=config[0])
-    bot.send_message(chat_id=config[1], text=text, parse_mode=telegram.ParseMode.MARKDOWN_V2)
+    data = {
+        "text": text,
+        "chat_id": config[1],
+        "parse_mode": "MarkdownV2",
+        "disable_notification": True
+    }
+    req = urllib.request.Request("https://api.telegram.org/bot{}/sendMessage".format(config[0]),
+                                 bytes(json.dumps(data), encoding="utf-8"),
+                                 {"Content-Type": "application/json"})
+    urllib.request.urlopen(req)
 
 
 def main(argv):
