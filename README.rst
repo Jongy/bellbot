@@ -1,7 +1,13 @@
 bellbot
 =======
 
-Like terminal bells, often used to notify when commands complete executing; but this time, using Telegram, to your phone!
+We all know that "compile" time can be used for fun purposes:
+
+.. image:: https://imgs.xkcd.com/comics/compiling.png
+
+Sometimes, however, you'd like to actualyl go and do something else while your code is compiling...
+
+Like terminal bells, often used to notify when commands complete executing: bellbot notifies you using Telegram, to your phone!
 
 .. image:: bellbot.jpg
 
