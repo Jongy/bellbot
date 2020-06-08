@@ -12,6 +12,11 @@ CONFIG_FILE = os.path.expanduser("~/.config/bellbot")
 
 
 def load_config():
+    try:
+        return (TOKEN, CHAT_ID)
+    except NameError:
+        pass
+
     with open(CONFIG_FILE, "r") as f:
         data = f.read()
         try:

@@ -21,3 +21,10 @@ Usage
 5. ``cp bellbot.py ~/bin/bellbot`` or any other directory in your ``PATH``.
 
 To test it, run run ``bellbot sleep 2`` and you should get a message within a few seconds.
+
+To make the file fully self-contained, you can store the token and chat ID in globals like this::
+
+    $ echo 'TOKEN = "YOUR_TOKEN"' >> bellbot.py
+    $ echo 'CHAT_ID = "CHAT_ID"' >> bellbot.py
+
+The script will use those variables, if found.
