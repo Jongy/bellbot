@@ -29,7 +29,7 @@ def send_message(text, config):
         "text": text,
         "chat_id": config[1],
         "parse_mode": "MarkdownV2",
-        "disable_notification": True
+        "disable_notification": False,
     }
     req = urllib.request.Request("https://api.telegram.org/bot{}/sendMessage".format(config[0]),
                                  bytes(json.dumps(data), encoding="utf-8"),
